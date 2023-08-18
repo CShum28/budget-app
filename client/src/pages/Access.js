@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
+import Button from "../components/Button";
 
 function Access() {
   return (
@@ -9,11 +10,11 @@ function Access() {
       <h2>Access</h2>
 
       <Link to="/login">
-        <button>Login</button>
+        <Button>Login</Button>
       </Link>
 
       <Link to="/sign-up">
-        <button>Sign Up</button>
+        <Button>Sign Up</Button>
       </Link>
     </>
   );

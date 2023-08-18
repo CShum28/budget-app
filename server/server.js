@@ -1,13 +1,29 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
-const database = require("./db/database");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const morgan = require("morgan");
 
-app.get("/api", (req, res) => {
-  database.getUsersAndPasswords().then((results) => {
-    console.log("results", results);
-    res.json(results.rows); // doing .row sends the api info
-  });
-});
+// Middleware to parse JSON data from request body
+app.use(bodyParser.json());
+
+// Use morgan middleware for logging
+app.use(morgan("dev"));
+
+// Enable CORS for all routes
+app.use(cors());
+
+// Routes for each resource
+const getLoginInfo = require("./routes/getExample");
+const loginRoute = require("./routes/loginRoute");
+const signUpRoute = require("./routes/signUpRoute");
+
+// Resources appl.use
+app.use("/example", getLoginInfo);
+app.use("/login", loginRoute);
+app.use("/sign-up", signUpRoute);
 
 app.listen(5000, () => {
   console.log("Server started on port 5000");
