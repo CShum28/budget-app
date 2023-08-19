@@ -16,13 +16,11 @@ app.use(morgan("dev"));
 app.use(cors());
 
 // Routes for each resource
-const getLoginInfo = require("./routes/getExample");
 const loginRoute = require("./routes/loginRoute");
 const signUpRoute = require("./routes/signUpRoute");
 const emailCheck = require("./routes/emailCheck");
 
 // Resources appl.use
-app.use("/example", getLoginInfo);
 app.use("/login", loginRoute);
 app.use("/email-check", emailCheck);
 app.use("/sign-up", signUpRoute);
