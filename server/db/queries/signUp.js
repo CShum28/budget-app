@@ -1,7 +1,7 @@
 const db = require("../database");
 
 const signUp = (email, password) => {
-  const queryString = `INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *`;
+  const queryString = `INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *`;
 
   const values = [email, password];
 

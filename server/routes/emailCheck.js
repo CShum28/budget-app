@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const getAllUsernames = require("../db/queries/getAllUsernames");
+const getAllEmails = require("../db/queries/getAllEmails");
 
 router.post("/", (req, res) => {
   const { email } = req.body;
   console.log("checking for: ", email);
 
-  getAllUsernames().then((results) => {
+  getAllEmails().then((results) => {
     console.log("line 10", results);
-    const usernames = results.map((users) => users.username);
-    if (usernames.includes(email)) {
+    const emails = results.map((users) => users.email);
+    if (emails.includes(email)) {
       console.log("Email already exist");
       return res.send({ exists: true });
     } else {

@@ -9,9 +9,7 @@ router.post("/", (req, res) => {
     if (!response) {
       return console.log("Email or password does not match please try again");
     }
-    // console.log("username: ", res.username);
-    // console.log("password: ", res.password);
-    if (response.username === email && response.password === password) {
+    if (response.email === email && response.password === password) {
       console.log(response);
       return res.json(response);
     }
