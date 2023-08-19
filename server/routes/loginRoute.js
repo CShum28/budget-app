@@ -14,6 +14,12 @@ router.post("/", (req, res) => {
       // checks emails match and password = hash password
       if (response.email === email && result === true) {
         console.log("Login Successful!");
+        console.log(response);
+
+        // this is the set the cookie session to be used
+        const user = { id: response.id, email: response.email };
+        req.session.user = user;
+        console.log("## req session: ", req.session.user);
         return res.json(response);
       } else {
         console.log("Password is incorrect");
