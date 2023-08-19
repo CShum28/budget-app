@@ -16,7 +16,7 @@ app.use(morgan("dev"));
 // Enable CORS for all routes
 app.use(
   cors({
-    origin: "http://localhost:3000", // Replace this with your frontend domain
+    origin: "http://localhost:3000", // Replace this with your frontend domain, gives 3000 ability to access backend resources
     credentials: true, // Enable sending cookies in CORS requests
   })
 );
