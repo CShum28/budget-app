@@ -27,7 +27,7 @@ function Login() {
               setModal(true);
             } else {
               // if email and password match - navigate to next screen
-              nav("/");
+              nav("/home");
             }
           })
           .catch((error) => {
