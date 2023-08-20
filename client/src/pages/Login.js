@@ -2,24 +2,39 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Button from "../components/Button";
+import emailCheck from "../hooks/emailCheck";
 import userLogin from "../hooks/userLogin";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [modal, setModal] = useState(false);
   const nav = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    userLogin(email, password)
-      .then((res) => {
-        console.log(res);
-        nav("/");
-      })
-      .catch((error) => {
-        console.error("Login failed");
-      });
+
+    emailCheck(email).then((res) => {
+      // this checks if the email that is being entered exists or not
+      if (!res) {
+        setModal(true);
+      } else {
+        userLogin(email, password)
+          .then((res) => {
+            if (res.password === false) {
+              // this checks if the password being enters matches or not
+              setModal(true);
+            } else {
+              // if email and password match - navigate to next screen
+              nav("/home");
+            }
+          })
+          .catch((error) => {
+            console.error("Login failed");
+          });
+      }
+    });
   };
 
   return (
@@ -53,6 +68,8 @@ function Login() {
         />
         <Button type="submit">Login</Button>
       </form>
+
+      {modal && <div>Incorrect email or password - try again</div>}
     </>
   );
 }

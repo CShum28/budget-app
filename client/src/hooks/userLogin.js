@@ -2,9 +2,12 @@ import axios from "axios";
 
 function userLogin(email, password) {
   return axios
-    .post("http://localhost:5000/login", { email, password })
+    .post(
+      "http://localhost:5000/login",
+      { email, password },
+      { withCredentials: true }
+    )
     .then((res) => {
-      // console.log(res.data);
       return res.data;
     })
     .catch((error) => {
