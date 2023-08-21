@@ -1,20 +1,32 @@
 import Button from "./Button";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Header(props) {
-  const signOut = (event) => {
-    event.preventDefault();
-  };
+  const nav = useNavigate();
 
-  // need to figure out the signout
-  // might have to add some backend to it to clear the cookie
-  // https://www.npmjs.com/package/cookie-session
-  // req.session = null
+  const handleLogOut = () => {
+    console.log("attempting logout");
+    return axios
+      .post("http://localhost:5000/logout")
+      .then(() => {
+        nav("/");
+      })
+      .catch((error) => {
+        console.error("Logout error:", error);
+      });
+  };
 
   return (
     <>
       <h1>This is the header</h1>
-      {props.userInfo && <p>Logged in as: {props.userInfo}</p>}
-      <Button onClick={signOut}>Logout</Button>
+      {props.userInfo && (
+        <div>
+          <p>Logged in as: {props.userInfo}</p>
+        </div>
+      )}
+
+      <Button onClick={handleLogOut}>Logout</Button>
     </>
   );
 }

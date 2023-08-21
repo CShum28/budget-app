@@ -34,13 +34,13 @@ app.use(
 const loginRoute = require("./routes/loginRoute");
 const emailCheck = require("./routes/emailCheck");
 const signUpRoute = require("./routes/signUpRoute");
-const signOutRoute = require("./routes/signOutRoute");
+const logOutRoute = require("./routes/logOutRoute");
 
 // Resources appl.use
 app.use("/login", loginRoute);
 app.use("/email-check", emailCheck);
 app.use("/sign-up", signUpRoute);
-app.use("/sign-out", signOutRoute);
+app.use("/logout", logOutRoute);
 
 app.listen(5000, () => {
   console.log("Server started on port 5000");
