@@ -5,7 +5,11 @@ function Button(props) {
     // btn,
   });
 
-  return <button className={buttonClass}>{props.children}</button>;
+  return (
+    <button className={buttonClass} onClick={props.onClick}>
+      {props.children}
+    </button>
+  );
 }
 
 export default Button;

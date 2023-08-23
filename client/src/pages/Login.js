@@ -5,12 +5,17 @@ import Button from "../components/Button";
 import emailCheck from "../hooks/emailCheck";
 import userLogin from "../hooks/userLogin";
 
-function Login() {
+function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [modal, setModal] = useState(false);
   const nav = useNavigate();
+
+  const displayUser = (email) => {
+    console.log("##");
+    props.setUserInfo(email);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,6 +32,7 @@ function Login() {
               setModal(true);
             } else {
               // if email and password match - navigate to next screen
+              displayUser(email);
               nav("/home");
             }
           })

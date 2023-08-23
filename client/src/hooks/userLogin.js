@@ -5,7 +5,7 @@ function userLogin(email, password) {
     .post(
       "http://localhost:5000/login",
       { email, password },
-      { withCredentials: true }
+      { withCredentials: true } // this sends the cookies to the backend properly
     )
     .then((res) => {
       return res.data;
