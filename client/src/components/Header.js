@@ -7,9 +7,13 @@ function Header(props) {
 
   const handleLogOut = () => {
     console.log("attempting logout");
-    return axios
-      .post("http://localhost:5000/logout")
+    return axios({
+      method: "post",
+      url: "http://localhost:5000/logout",
+      withCredentials: true, // this sends the cookies to the backend properly
+    })
       .then(() => {
+        localStorage.clear();
         nav("/");
       })
       .catch((error) => {
@@ -23,10 +27,9 @@ function Header(props) {
       {props.userInfo && (
         <div>
           <p>Logged in as: {props.userInfo}</p>
+          <Button onClick={handleLogOut}>Logout</Button>
         </div>
       )}
-
-      <Button onClick={handleLogOut}>Logout</Button>
     </>
   );
 }
