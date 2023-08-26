@@ -14,14 +14,18 @@ CREATE TABLE users (
 CREATE TABLE budgets (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  monthly_income INTEGER NOT NULL
+  budget_name VARCHAR(255) NOT NULL,
+  monthly_income INTEGER NOT NULL,
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL
 );
 
 CREATE TABLE transactions (
   id SERIAL PRIMARY KEY NOT NULL,
   budgets_id INTEGER REFERENCES budgets(id) ON DELETE CASCADE,
   transaction_categories_id INTEGER REFERENCES transactions_categories(id) ON DELETE CASCADE,
-  amount INTEGER NOT NULL
+  amount INTEGER NOT NULL,
+  date DATE NOT NULL
 );
 
 CREATE TABLE transactions_categories (

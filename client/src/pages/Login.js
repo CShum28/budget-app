@@ -51,27 +51,29 @@ function Login(props) {
 
       <form onSubmit={handleSubmit}>
         <h2>Email</h2>
-        <input
-          className=""
-          name="email"
-          type="text"
-          placeholder="email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <h2>Password</h2>
-        <input
-          className=""
-          name="password"
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
+        <div>
+          <input
+            className=""
+            name="email"
+            type="text"
+            placeholder="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <h2>Password</h2>
+          <input
+            className=""
+            name="password"
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
         <Button type="submit">Login</Button>
       </form>
 
