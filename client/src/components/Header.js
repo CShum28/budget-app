@@ -26,7 +26,8 @@ function Header(props) {
       <h1>This is the header</h1>
       {props.userInfo && (
         <div>
-          <p>Logged in as: {props.userInfo}</p>
+          <p>Logged in as: {props.userInfo.email}</p>
+          <p>User Id is: {props.userInfo.id}</p>
           <Button onClick={handleLogOut}>Logout</Button>
         </div>
       )}
