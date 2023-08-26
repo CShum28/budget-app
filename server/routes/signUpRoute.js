@@ -9,6 +9,8 @@ const signUp = require("../db/queries/signUp");
 router.post("/", (req, res) => {
   const { email, password } = req.body;
 
+  console.log(email);
+
   bcrypt.hash(password, saltRounds, function (err, hash) {
     // using bcrpy to hash password for safety
     console.log("hashed password: ", hash);
