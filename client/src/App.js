@@ -24,7 +24,7 @@ function App() {
           <Route index element={<Access />} />
           <Route path="/login" element={<Login setUserInfo={setUserInfo} />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/home" element={<Home userInfo={userInfo} />} />
+          <Route path="/home/:id" element={<Home userInfo={userInfo} />} />
           <Route
             path="/add-budget"
             element={<AddBudget userInfo={userInfo} />}
