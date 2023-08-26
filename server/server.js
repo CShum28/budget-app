@@ -35,21 +35,14 @@ const loginRoute = require("./routes/loginRoute");
 const emailCheck = require("./routes/emailCheck");
 const signUpRoute = require("./routes/signUpRoute");
 const logOutRoute = require("./routes/logOutRoute");
+const addBudgetRoute = require("./routes/addBudgetRoute");
 
 // Resources app.use
 app.use("/login", loginRoute);
 app.use("/email-check", emailCheck);
 app.use("/sign-up", signUpRoute);
 app.use("/logout", logOutRoute);
-
-// app.post("/logout", (req, res) => {
-//   console.log("line46");
-//   // req.session = null;
-//   req.session.destroy(() => {
-//     res.clearCookie("session");
-//     res.status(200).json({ message: "Logout successful" });
-//   });
-// });
+app.use("/add-budget", addBudgetRoute);
 
 app.listen(5000, () => {
   console.log("Server started on port 5000");
