@@ -18,8 +18,6 @@ function Home(props) {
     });
   }, []);
 
-  console.log("##: ", budgetList);
-
   const addNewBudget = () => {
     nav("/add-budget");
   };

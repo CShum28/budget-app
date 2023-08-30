@@ -20,8 +20,6 @@ function AddBudget(props) {
 
   const nav = useNavigate();
 
-  console.log(props.userInfo.email);
-
   const userEmail = props.userInfo.email;
 
   const handleSubmit = (event) => {
