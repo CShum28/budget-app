@@ -1,7 +1,11 @@
+const Button = require("./Button");
+
 function BudgetListItem(props) {
   return (
     <>
-      <p>{props.name}</p>
+      <span>
+        <p>{props.name}</p>
+      </span>
     </>
   );
 }
