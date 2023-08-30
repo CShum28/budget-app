@@ -36,6 +36,8 @@ const emailCheck = require("./routes/emailCheck");
 const signUpRoute = require("./routes/signUpRoute");
 const logOutRoute = require("./routes/logOutRoute");
 const addBudgetRoute = require("./routes/addBudgetRoute");
+// delete requests
+const deleteBudgetRoute = require("./routes/deleteBudgetRoute");
 // API routes
 const getBudgets = require("./routes/getBudgetsById");
 
@@ -45,6 +47,8 @@ app.use("/email-check", emailCheck);
 app.use("/sign-up", signUpRoute);
 app.use("/logout", logOutRoute);
 app.use("/add-budget", addBudgetRoute);
+// delete requests
+app.use("/delete-budget", deleteBudgetRoute);
 // APIs for gets
 app.use("/api/get-budgets", getBudgets);
 
