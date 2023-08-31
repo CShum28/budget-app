@@ -36,6 +36,12 @@ const emailCheck = require("./routes/emailCheck");
 const signUpRoute = require("./routes/signUpRoute");
 const logOutRoute = require("./routes/logOutRoute");
 const addBudgetRoute = require("./routes/addBudgetRoute");
+// delete requests
+const deleteBudgetRoute = require("./routes/deleteBudgetRoute");
+// put request for updating
+const updateBudgetRoute = require("./routes/updateBudgetRoute");
+// API routes
+const getBudgets = require("./routes/getBudgetsById");
 
 // Resources app.use
 app.use("/login", loginRoute);
@@ -43,6 +49,12 @@ app.use("/email-check", emailCheck);
 app.use("/sign-up", signUpRoute);
 app.use("/logout", logOutRoute);
 app.use("/add-budget", addBudgetRoute);
+// delete requests
+app.use("/delete-budget", deleteBudgetRoute);
+// put request for updating
+app.use("/update-budget", updateBudgetRoute);
+// APIs for gets
+app.use("/api/get-budgets", getBudgets);
 
 app.listen(5000, () => {
   console.log("Server started on port 5000");

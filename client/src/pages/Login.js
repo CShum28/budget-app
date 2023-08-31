@@ -12,9 +12,8 @@ function Login(props) {
   const [modal, setModal] = useState(false);
   const nav = useNavigate();
 
-  const displayUser = (email) => {
-    console.log("##");
-    props.setUserInfo(email);
+  const displayUser = (res) => {
+    props.setUserInfo(res);
   };
 
   const handleSubmit = (event) => {
@@ -31,9 +30,10 @@ function Login(props) {
               // this checks if the password being enters matches or not
               setModal(true);
             } else {
+              console.log("##", res.id);
               // if email and password match - navigate to next screen
-              displayUser(email);
-              nav("/home");
+              displayUser(res);
+              nav(`/home/${res.id}`);
             }
           })
           .catch((error) => {

@@ -20,11 +20,10 @@ function AddBudget(props) {
 
   const nav = useNavigate();
 
-  const userEmail = props.userInfo;
+  const userEmail = props.userInfo.email;
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(typeof budget);
 
     if (name === undefined || budget === undefined) {
       // if (name === undefined || !Number.isInteger(budget)) {
@@ -32,7 +31,7 @@ function AddBudget(props) {
     }
     addBudget(userEmail, name, budget, startDate, endDate).then((res) => {
       console.log(res);
-      nav("/home");
+      nav(`/home/${props.userInfo.id}`);
     });
   };
 
