@@ -38,6 +38,8 @@ const logOutRoute = require("./routes/logOutRoute");
 const addBudgetRoute = require("./routes/addBudgetRoute");
 // delete requests
 const deleteBudgetRoute = require("./routes/deleteBudgetRoute");
+// put request for updating
+const updateBudgetRoute = require("./routes/updateBudgetRoute");
 // API routes
 const getBudgets = require("./routes/getBudgetsById");
 
@@ -49,6 +51,8 @@ app.use("/logout", logOutRoute);
 app.use("/add-budget", addBudgetRoute);
 // delete requests
 app.use("/delete-budget", deleteBudgetRoute);
+// put request for updating
+app.use("/update-budget", updateBudgetRoute);
 // APIs for gets
 app.use("/api/get-budgets", getBudgets);
 
