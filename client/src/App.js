@@ -7,6 +7,7 @@ import SignUp from "./pages/SignUp";
 import Access from "./pages/Access";
 import NoPage from "./pages/NoPage";
 import AddBudget from "./pages/AddBudget";
+import Budget from "./pages/Budget";
 
 function App() {
   const [userInfo, setUserInfo] = useState(
@@ -29,6 +30,7 @@ function App() {
             path="/add-budget"
             element={<AddBudget userInfo={userInfo} />}
           />
+          <Route path="/budget/:id" element={<Budget userInfo={userInfo} />} />
           <Route path="*" element={<NoPage />} />
           {/* this means any path that does not exist - no page will show */}
         </Routes>
