@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BudgetListItem from "./BudgetListItem";
 import Button from "./Button";
-import EditModal from "./EditModal";
+import EditBudgetModal from "./EditBudgetModal";
 import DeleteModal from "./DeleteModal";
 import deleteBudget from "../hooks/deleteBudget";
 
@@ -60,7 +60,7 @@ function BudgetList(props) {
         />
       )}
       {editModal && (
-        <EditModal
+        <EditBudgetModal
           selectedBudget={selectedBudget}
           toggleModal={toggleEditModal}
         />
