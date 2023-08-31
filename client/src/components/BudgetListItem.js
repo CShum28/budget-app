@@ -1,11 +1,25 @@
-const Button = require("./Button");
+import Button from "./Button";
 
-function BudgetListItem(props) {
+function BudgetListItem({
+  budget,
+  visitBudget,
+  toggleEditModal,
+  toggleDeleteModal,
+}) {
   return (
     <>
-      <span>
-        <p>{props.name}</p>
-      </span>
+      <tr>
+        <td>
+          <Button onClick={() => visitBudget(budget)}>
+            {budget.budget_name}
+          </Button>
+        </td>
+        <td>{budget.monthly_income}</td>
+        <td>
+          <Button onClick={() => toggleEditModal(budget)}>Edit</Button>
+          <Button onClick={() => toggleDeleteModal(budget)}>Delete</Button>
+        </td>
+      </tr>
     </>
   );
 }
