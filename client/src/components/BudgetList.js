@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BudgetListItem from "./BudgetListItem";
-import Button from "./Button";
 import EditBudgetModal from "./EditBudgetModal";
 import DeleteModal from "./DeleteModal";
 import deleteBudget from "../hooks/deleteBudget";
@@ -9,6 +9,13 @@ function BudgetList(props) {
   const [selectedBudget, setSelectedBudget] = useState(null);
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+
+  const nav = useNavigate();
+
+  const visitBudget = (budget) => {
+    setSelectedBudget(budget);
+    nav(`/budget/${budget.id}`);
+  };
 
   const toggleEditModal = (budget) => {
     setSelectedBudget(budget);
@@ -30,7 +37,6 @@ function BudgetList(props) {
 
   // this turns the modal on and off
   if (deleteModal || editModal) {
-    // if (editModal) {
     document.body.classList.add("active-modal");
   } else {
     document.body.classList.remove("active-modal");
@@ -38,21 +44,26 @@ function BudgetList(props) {
 
   const budgetList = props.budgetList.map((budget) => {
     return (
-      <div>
-        <BudgetListItem
-          key={budget.id}
-          name={budget.budget_name}
-          amount={budget.monthly_income}
-        />
-        <Button onClick={() => toggleEditModal(budget)}>Edit</Button>
-        <Button onClick={() => toggleDeleteModal(budget)}>Delete</Button>
-      </div>
+      <BudgetListItem
+        key={budget.id}
+        budget={budget}
+        visitBudget={visitBudget}
+        toggleEditModal={toggleEditModal}
+        toggleDeleteModal={toggleDeleteModal}
+      />
     );
   });
 
   return (
     <>
-      <div>{budgetList}</div>;
+      <table>
+        <tr>
+          <th>Budget</th>
+          <th>Monthly Income</th>
+          <th>Actions</th>
+        </tr>
+        <tbody>{budgetList}</tbody>
+      </table>
       {deleteModal && (
         <DeleteModal
           confirmDelete={confirmDelete}
