@@ -1,16 +1,23 @@
 import { useState } from "react";
 import BudgetListItem from "./BudgetListItem";
 import Button from "./Button";
+import EditModal from "./EditModal";
 import DeleteModal from "./DeleteModal";
 import deleteBudget from "../hooks/deleteBudget";
 
 function BudgetList(props) {
-  const [modal, setModal] = useState(false);
   const [selectedBudget, setSelectedBudget] = useState(null);
+  const [editModal, setEditModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
-  const toggleModal = (budget) => {
+  const toggleEditModal = (budget) => {
+    setSelectedBudget(budget);
+    setEditModal(!editModal); // toggles editModal to true
+  };
+
+  const toggleDeleteModal = (budget) => {
     setSelectedBudget(budget); // set the selectBudget info to be used in either Edit or Delete
-    setModal(!modal); // toggles the modal that ask to confirm delete
+    setDeleteModal(!deleteModal); // toggles the modal that ask to confirm delete
   };
 
   const confirmDelete = () => {
@@ -19,8 +26,11 @@ function BudgetList(props) {
     window.location.reload(false); // refreshes the page
   };
 
+  console.log("current select budget: ", selectedBudget);
+
   // this turns the modal on and off
-  if (modal) {
+  if (deleteModal || editModal) {
+    // if (editModal) {
     document.body.classList.add("active-modal");
   } else {
     document.body.classList.remove("active-modal");
@@ -34,9 +44,8 @@ function BudgetList(props) {
           name={budget.budget_name}
           amount={budget.monthly_income}
         />
-        <Button>Edit</Button>
-        <Button onClick={() => toggleModal(budget)}>Delete</Button>
-        {/* clicking this button toggles modal */}
+        <Button onClick={() => toggleEditModal(budget)}>Edit</Button>
+        <Button onClick={() => toggleDeleteModal(budget)}>Delete</Button>
       </div>
     );
   });
@@ -44,8 +53,17 @@ function BudgetList(props) {
   return (
     <>
       <div>{budgetList}</div>;
-      {modal && (
-        <DeleteModal confirmDelete={confirmDelete} toggleModal={toggleModal} />
+      {deleteModal && (
+        <DeleteModal
+          confirmDelete={confirmDelete}
+          toggleModal={toggleDeleteModal}
+        />
+      )}
+      {editModal && (
+        <EditModal
+          selectedBudget={selectedBudget}
+          toggleModal={toggleEditModal}
+        />
       )}
     </>
   );
