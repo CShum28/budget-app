@@ -41,7 +41,8 @@ const deleteBudgetRoute = require("./routes/deleteBudgetRoute");
 // put request for updating
 const updateBudgetRoute = require("./routes/updateBudgetRoute");
 // API routes
-const getBudgets = require("./routes/getBudgetsById");
+const getBudgetList = require("./routes/getBudgetListById");
+const getBudget = require("./routes/getBudget");
 
 // Resources app.use
 app.use("/login", loginRoute);
@@ -54,7 +55,8 @@ app.use("/delete-budget", deleteBudgetRoute);
 // put request for updating
 app.use("/update-budget", updateBudgetRoute);
 // APIs for gets
-app.use("/api/get-budgets", getBudgets);
+app.use("/api/get-budget-list", getBudgetList);
+app.use("/api/get-budget", getBudget);
 
 app.listen(5000, () => {
   console.log("Server started on port 5000");
