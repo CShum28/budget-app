@@ -12,7 +12,7 @@ function Home(props) {
   const { id } = useParams(); // getting id to be used for GET request
 
   useEffect(() => {
-    axios.get(`/api/get-budgets/${id}`).then((res) => {
+    axios.get(`/api/get-budget-list/${id}`).then((res) => {
       // axios.get(`http://localhost:5000/api/get-budgets/${id}`).then((res) => {
       setBudgetList(res.data);
     });
