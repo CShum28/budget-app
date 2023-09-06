@@ -5,6 +5,8 @@ const insertBudget = require("../db/queries/insertBudget");
 
 router.post("/", (req, res) => {
   const { userEmail, budgetName, budgetAmount, startDate, endDate } = req.body;
+
+  // grabbing the userId and the using it inside of insertBudget
   getUserId(userEmail).then((userId) => {
     insertBudget(userId, budgetName, budgetAmount, startDate, endDate).then(
       (results) => {
