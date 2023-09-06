@@ -1,25 +1,39 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
+import Button from "../components/Button";
 
 function Budget({ userInfo }) {
   const [budget, setBudget] = useState();
+  const [categories, setCategories] = useState();
   const { id } = useParams(); // getting id to be used for GET request
-
+  const nav = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/get-budget/${id}`)
+      .get(`http://localhost:5000/api/get-budget/${id}`) // call to set the budget
       .then((res) => {
         setBudget(res.data[0]);
+        axios
+          .get(`http://localhost:5000/api/get-categories/${res.data[0].id}`) // call to set the categories of budget
+          .then((res) => {
+            console.log(res.data);
+            setCategories(res.data);
+          });
       })
       .catch((error) => {
         console.error("Error fetching budget:", error);
         setBudget(); // Set budget on error
+        setCategories(); // Set categories on error
       });
   }, []);
 
-  console.log(budget);
+  console.log("Budget Info: ", budget);
+  console.log("Budget Categories: ", categories);
+
+  const addCategory = () => {
+    nav(`/add-category/${budget.id}/${budget.budget_name}`);
+  };
 
   return (
     <>
@@ -31,6 +45,8 @@ function Budget({ userInfo }) {
           <p>Budget Amount: {budget.monthly_income}</p>
         </>
       )}
+      <Button onClick={addCategory}>Add Category</Button>
+      <p>Categories:</p>
     </>
   );
 }
