@@ -3,10 +3,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
 import Button from "../components/Button";
+import CategoriesList from "../components/CategoriesList";
 
 function Budget({ userInfo }) {
   const [budget, setBudget] = useState();
-  const [categories, setCategories] = useState();
+  const [categories, setCategories] = useState([]);
   const { id } = useParams(); // getting id to be used for GET request
   const nav = useNavigate();
   useEffect(() => {
@@ -17,7 +18,7 @@ function Budget({ userInfo }) {
         axios
           .get(`http://localhost:5000/api/get-categories/${res.data[0].id}`) // call to set the categories of budget
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             setCategories(res.data);
           });
       })
@@ -47,6 +48,7 @@ function Budget({ userInfo }) {
       )}
       <Button onClick={addCategory}>Add Category</Button>
       <p>Categories:</p>
+      <CategoriesList categories={categories} />
     </>
   );
 }
