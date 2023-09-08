@@ -1,5 +1,5 @@
 import Button from "./Button";
-import "./DeleteModal.css";
+import "../styles/DeleteModal.css";
 
 function DeleteModal(props) {
   return (
