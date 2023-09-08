@@ -1,13 +1,14 @@
 import { useState } from "react";
 import Button from "./Button";
-import DeleteModal from "./DeleteModal";
 
-function CategoriesListItem({ category }) {
+function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
   const [modal, setModal] = useState(false);
 
   const showTransactions = () => {
     setModal(!modal);
   };
+
+  console.log("##: ", category);
 
   return (
     <div>
@@ -17,8 +18,8 @@ function CategoriesListItem({ category }) {
 
       {modal && (
         <>
-          <Button>Edit</Button>
-          <Button>Delete</Button>
+          <Button onClick={() => toggleEditModal(category)}>Edit</Button>
+          <Button onClick={() => toggleDeleteModal(category)}>Delete</Button>
           <p>This is a test</p>
         </>
       )}
