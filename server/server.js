@@ -39,8 +39,10 @@ const addBudgetRoute = require("./routes/addBudgetRoute");
 const addCategoryRoute = require("./routes/addCategoryRoute");
 // delete requests
 const deleteBudgetRoute = require("./routes/deleteBudgetRoute");
+const deleteCategoryRoute = require("./routes/deleteCategoryRoute");
 // put request for updating
 const updateBudgetRoute = require("./routes/updateBudgetRoute");
+const updateCategoryRoute = require("./routes/updateCategoryRoute");
 // API routes
 const getBudgetList = require("./routes/getBudgetListById");
 const getBudget = require("./routes/getBudget");
@@ -55,8 +57,10 @@ app.use("/add-budget", addBudgetRoute);
 app.use("/add-category", addCategoryRoute);
 // delete requests
 app.use("/delete-budget", deleteBudgetRoute);
+app.use("/delete-category", deleteCategoryRoute);
 // put request for updating
 app.use("/update-budget", updateBudgetRoute);
+app.use("/update-category", updateCategoryRoute);
 // APIs for gets
 app.use("/api/get-budget-list", getBudgetList); // gets all budgets that belong to a user
 app.use("/api/get-budget", getBudget); // get 1 specific budget to be used
