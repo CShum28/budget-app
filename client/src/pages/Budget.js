@@ -47,7 +47,7 @@ function Budget({ userInfo }) {
         </>
       )}
       <Button onClick={addCategory}>Add Category</Button>
-      <p>Categories:</p>
+      <h3>Categories:</h3>
       <CategoriesList categories={categories} />
     </>
   );
