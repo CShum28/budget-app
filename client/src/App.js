@@ -7,6 +7,7 @@ import SignUp from "./pages/SignUp";
 import Access from "./pages/Access";
 import NoPage from "./pages/NoPage";
 import AddBudget from "./pages/AddBudget";
+import AddCategory from "./pages/AddCategory";
 import Budget from "./pages/Budget";
 
 function App() {
@@ -31,6 +32,10 @@ function App() {
             element={<AddBudget userInfo={userInfo} />}
           />
           <Route path="/budget/:id" element={<Budget userInfo={userInfo} />} />
+          <Route
+            path="/add-category/:budgetId/:budgetName"
+            element={<AddCategory userInfo={userInfo} />}
+          />
           <Route path="*" element={<NoPage />} />
           {/* this means any path that does not exist - no page will show */}
         </Routes>

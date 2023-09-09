@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Button from "./Button";
 import updateBudget from "../hooks/updateBudget";
-import "./EditBudgetModal.css";
+import "../styles/EditModal.css";
 
-function EditModal({ selectedBudget, toggleModal }) {
+function EditBudgetModal({ selectedBudget, toggleModal }) {
   const [name, setName] = useState(selectedBudget.budget_name);
   const [budget, setBudget] = useState(selectedBudget.monthly_income);
 
@@ -50,4 +50,4 @@ function EditModal({ selectedBudget, toggleModal }) {
   // }
 }
 
-export default EditModal;
+export default EditBudgetModal;

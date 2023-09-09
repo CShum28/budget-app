@@ -20,7 +20,7 @@ function AddBudget(props) {
 
   const nav = useNavigate();
 
-  const userEmail = props.userInfo.email;
+  const userEmail = props.userInfo.email; // using props to get email
 
   const handleSubmit = (event) => {
     event.preventDefault();
