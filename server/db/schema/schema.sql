@@ -30,6 +30,7 @@ CREATE TABLE categories (
 CREATE TABLE transactions (
   id SERIAL PRIMARY KEY NOT NULL,
   budgets_id INTEGER REFERENCES budgets(id) ON DELETE CASCADE,
+  transaction_name VARCHAR(255) NOT NULL,
   amount INTEGER NOT NULL,
   date DATE NOT NULL
 );
