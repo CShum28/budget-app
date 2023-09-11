@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-function AddTransactionModal({ categoryId }) {
+function AddTransactionModal({ budgetId, categoryId }) {
   const [transaction, setTransaction] = useState("");
   const [amount, setAmount] = useState(0);
   const [transactionDate, setTransactionDate] = useState(new Date());
@@ -17,8 +17,9 @@ function AddTransactionModal({ categoryId }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // categoryId is needed to schema table: categories_transactions
-    addTransaction(categoryId, transaction, amount, transactionDate);
+    // categoryId is needed for schema table: categories_transactions
+    addTransaction(categoryId, budgetId, transaction, amount, transactionDate);
+    window.location.reload(false); // refreshes the page
   };
 
   return (
