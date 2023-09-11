@@ -37,6 +37,7 @@ const signUpRoute = require("./routes/signUpRoute");
 const logOutRoute = require("./routes/logOutRoute");
 const addBudgetRoute = require("./routes/addBudgetRoute");
 const addCategoryRoute = require("./routes/addCategoryRoute");
+const addTransactionRoute = require("./routes/addTransactionRoute");
 // delete requests
 const deleteBudgetRoute = require("./routes/deleteBudgetRoute");
 const deleteCategoryRoute = require("./routes/deleteCategoryRoute");
@@ -55,6 +56,7 @@ app.use("/sign-up", signUpRoute);
 app.use("/logout", logOutRoute);
 app.use("/add-budget", addBudgetRoute);
 app.use("/add-category", addCategoryRoute);
+app.use("/add-transaction", addTransactionRoute);
 // delete requests
 app.use("/delete-budget", deleteBudgetRoute);
 app.use("/delete-category", deleteCategoryRoute);
