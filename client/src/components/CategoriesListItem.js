@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "./Button";
 import AddTransactionModal from "./AddTransactionModal";
+import TransactionList from "./TransactionList";
 
 function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
   const [modal, setModal] = useState(false);
@@ -31,7 +32,14 @@ function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
             Add Transaction
           </Button>
 
-          {transactionModal && <AddTransactionModal categoryId={category.id} />}
+          {transactionModal && (
+            <AddTransactionModal
+              categoryId={category.id}
+              budgetId={category.budgets_id}
+            />
+          )}
+
+          <TransactionList />
         </>
       )}
     </div>
