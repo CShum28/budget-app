@@ -1,9 +1,19 @@
 import axios from "axios";
 
-function addTransaction(categoryId, transaction, amount, transactionDate) {
+function addTransaction(
+  categoryId,
+  budgetId,
+  transaction,
+  amount,
+  transactionDate
+) {
+  console.log("budgetId is: ", budgetId);
+  console.log("categoryId is: ", categoryId);
+
   return axios
     .post("http://localhost:5000/add-transaction", {
       categoryId,
+      budgetId,
       transaction,
       amount,
       transactionDate,
