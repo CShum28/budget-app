@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "./Button";
 import AddTransactionModal from "./AddTransactionModal";
 import TransactionList from "./TransactionList";
+import axios from "axios";
 
 function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
   const [modal, setModal] = useState(false);
   const [transactionModal, setTransactionModal] = useState(false);
+
+  console.log("CategoryId: ", category.id);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/get-category-transactions/${category.id}`)
+      .then((res) => {
+        console.log(res);
+      });
+  }, []);
+
   const showTransactions = () => {
     setModal(!modal);
   };
