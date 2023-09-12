@@ -48,6 +48,7 @@ const updateCategoryRoute = require("./routes/updateCategoryRoute");
 const getBudgetList = require("./routes/getBudgetListById");
 const getBudget = require("./routes/getBudget");
 const getCategories = require("./routes/getCategoriesById");
+const getCategoryTransactions = require("./routes/getCategoryTransactionsById");
 
 // Resources app.use
 app.use("/login", loginRoute);
@@ -67,6 +68,7 @@ app.use("/update-category", updateCategoryRoute);
 app.use("/api/get-budget-list", getBudgetList); // gets all budgets that belong to a user
 app.use("/api/get-budget", getBudget); // get 1 specific budget to be used
 app.use("/api/get-categories", getCategories);
+app.use("api/get-category-transactions", getCategoryTransactions);
 
 app.listen(5000, () => {
   console.log("Server started on port 5000");
