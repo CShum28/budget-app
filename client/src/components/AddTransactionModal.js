@@ -24,7 +24,7 @@ function AddTransactionModal({ budgetId, categoryId }) {
 
   return (
     <>
-      <h3>Add Transaction!</h3>
+      <p>Add Transaction!</p>
       <form onSubmit={handleSubmit}>
         <div>
           <p>Transaction</p>
