@@ -6,16 +6,21 @@ import axios from "axios";
 
 function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
   const [modal, setModal] = useState(false);
+  const [transactionsList, setTransactionsList] = useState([]);
   const [transactionModal, setTransactionModal] = useState(false);
 
-  console.log("CategoryId: ", category.id);
+  // console.log("CategoryId: ", category.id);
   useEffect(() => {
+    // console.log("the id being passed is: ", category.id);
     axios
-      .get(`http://localhost:5000/api/get-category-transactions/${category.id}`)
+      .get(`http://localhost:5000/api/get-transactions/${category.id}`)
       .then((res) => {
-        console.log(res);
+        setTransactionsList(res.data);
       });
   }, []);
+
+  // console.log("Transactions of CategoryId: ", category.id);
+  // console.log("The list of transactions are: ", transactionsList);
 
   const showTransactions = () => {
     setModal(!modal);
@@ -25,7 +30,7 @@ function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
     setTransactionModal(!transactionModal);
   };
 
-  console.log("##: ", category);
+  // console.log("##: ", category);
 
   return (
     <div>
@@ -50,7 +55,10 @@ function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
             />
           )}
 
-          <TransactionList />
+          <TransactionList
+            categoryId={category.id}
+            transactions={transactionsList}
+          />
         </>
       )}
     </div>
