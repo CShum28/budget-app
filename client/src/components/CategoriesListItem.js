@@ -1,10 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "./Button";
 import AddTransactionModal from "./AddTransactionModal";
+import TransactionList from "./TransactionList";
+import axios from "axios";
 
 function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
   const [modal, setModal] = useState(false);
+  const [transactionsList, setTransactionsList] = useState([]);
   const [transactionModal, setTransactionModal] = useState(false);
+
+  // console.log("CategoryId: ", category.id);
+  useEffect(() => {
+    // console.log("the id being passed is: ", category.id);
+    axios
+      .get(`http://localhost:5000/api/get-transactions/${category.id}`)
+      .then((res) => {
+        setTransactionsList(res.data);
+      });
+  }, []);
+
+  // console.log("Transactions of CategoryId: ", category.id);
+  // console.log("The list of transactions are: ", transactionsList);
+
   const showTransactions = () => {
     setModal(!modal);
   };
@@ -13,7 +30,7 @@ function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
     setTransactionModal(!transactionModal);
   };
 
-  console.log("##: ", category);
+  // console.log("##: ", category);
 
   return (
     <div>
@@ -31,7 +48,17 @@ function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
             Add Transaction
           </Button>
 
-          {transactionModal && <AddTransactionModal categoryId={category.id} />}
+          {transactionModal && (
+            <AddTransactionModal
+              categoryId={category.id}
+              budgetId={category.budgets_id}
+            />
+          )}
+
+          <TransactionList
+            categoryId={category.id}
+            transactions={transactionsList}
+          />
         </>
       )}
     </div>
