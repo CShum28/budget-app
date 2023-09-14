@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import TransactionListItem from "./TransactionListItem";
+import EditTransactionModal from "./EditTransactionModal";
 import DeleteModal from "./DeleteModal";
 import deleteTransaction from "../hooks/deleteTransaction";
 
@@ -9,7 +9,10 @@ function TransactionList({ categoryId, transactions }) {
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
 
-  const nav = useNavigate();
+  const toggleEditModal = (transaction) => {
+    setSelectedTransaction(transaction);
+    setEditModal(!editModal);
+  };
 
   const toggleDeleteModal = (transaction) => {
     setSelectedTransaction(transaction); // set the selectBudget info to be used in either Edit or Delete
@@ -29,10 +32,18 @@ function TransactionList({ categoryId, transactions }) {
       <TransactionListItem
         key={transaction.id}
         transaction={transaction}
+        toggleEditModal={toggleEditModal}
         toggleDeleteModal={toggleDeleteModal}
       />
     );
   });
+
+  // this turns the modal on and off
+  if (deleteModal || editModal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
 
   return (
     <div>
@@ -51,12 +62,12 @@ function TransactionList({ categoryId, transactions }) {
           toggleModal={toggleDeleteModal}
         />
       )}
-      {/* {editModal && (
-        <EditBudgetModal
-          selectedBudget={selectedBudget}
+      {editModal && (
+        <EditTransactionModal
+          selectedTransaction={selectedTransaction}
           toggleModal={toggleEditModal}
         />
-      )} */}
+      )}
     </div>
   );
 }
