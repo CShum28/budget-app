@@ -4,7 +4,7 @@ body.active-modal {
 
 .edit-modal, .edit-overlay {
   width: 300px;
-  height: 250px;
+  height: 50%;
   top: 0;
   left: 0;
   right: 0;
