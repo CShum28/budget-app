@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
 import Button from "../components/Button";
 import emailCheck from "../hooks/emailCheck";
 import userSignUp from "../hooks/userSignUp";
+import "../styles/SignUp.css";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -32,41 +32,43 @@ function SignUp() {
   };
 
   return (
-    <>
-      <Header />
-
-      <h2>Sign Up</h2>
-
-      <form onSubmit={handleSubmit}>
-        <h2>Email</h2>
-        <div>
-          <input
-            className=""
-            name="email"
-            type="text"
-            placeholder="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <h2>Password</h2>
-          <input
-            className=""
-            name="password"
-            type="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <Button>Sign Up!</Button>
-      </form>
-
-      {modal && <div>The username already exists, please try again</div>}
-    </>
+    <div className="signup">
+      <div className="signup__content">
+        <h2 className="signup__header">Sign Up</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="signup__input">
+            <p>Email</p>
+            <input
+              className=""
+              name="email"
+              type="text"
+              placeholder="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <p>Password</p>
+            <input
+              className=""
+              name="password"
+              type="password"
+              placeholder="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
+          <Button inputSignup>Sign Up!</Button>
+        </form>
+        {modal && (
+          <div className="signup__error">
+            The username already exists, try again
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 

@@ -1,9 +1,16 @@
 import Button from "./Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../styles/Header.css";
+import budgetBuddyLogo from "../assets/budget-buddy-logo.png";
 
 function Header(props) {
   const nav = useNavigate();
+
+  const handleImageClick = () => {
+    console.log(props.userInfo);
+    nav(`/home/${props.userInfo.id}`);
+  };
 
   const handleLogOut = () => {
     console.log("attempting logout");
@@ -23,14 +30,22 @@ function Header(props) {
 
   return (
     <>
-      <h1>This is the header</h1>
-      {props.userInfo && (
-        <div>
-          <p>Logged in as: {props.userInfo.email}</p>
-          <p>User Id is: {props.userInfo.id}</p>
-          <Button onClick={handleLogOut}>Logout</Button>
-        </div>
-      )}
+      <div className="header">
+        <img
+          className="header__logo"
+          src={budgetBuddyLogo}
+          alt="Budget Buddy Logo"
+          onClick={handleImageClick}
+        />
+        {props.userInfo && (
+          <div className="header__user-info">
+            <p className="header__user-info-text">
+              Hello {props.userInfo.email}!
+            </p>
+            <Button onClick={handleLogOut}>Logout</Button>
+          </div>
+        )}
+      </div>
     </>
   );
 }

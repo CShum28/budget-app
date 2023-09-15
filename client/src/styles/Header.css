@@ -1,0 +1,25 @@
+.header, .header__user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  padding: 10px 20px;
+  background-color: var(--dark-gray);
+}
+
+.header__logo {
+  height: 5rem;
+  width: auto;
+  border-radius: 20px;
+}
+
+.header__logo:hover {
+  cursor: pointer;
+}
+
+.header__user-info-text {
+  color: #d4d7dc
+}
