@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
 import Button from "../components/Button";
 import emailCheck from "../hooks/emailCheck";
 import userLogin from "../hooks/userLogin";
+import "../styles/Login.css";
 
 function Login(props) {
   const [email, setEmail] = useState("");
@@ -44,41 +44,48 @@ function Login(props) {
   };
 
   return (
-    <>
-      <Header />
-
-      <h2>Login</h2>
-
-      <form onSubmit={handleSubmit}>
-        <h2>Email</h2>
-        <div>
-          <input
-            className=""
-            name="email"
-            type="text"
-            placeholder="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <h2>Password</h2>
-          <input
-            className=""
-            name="password"
-            type="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <Button type="submit">Login</Button>
-      </form>
-
-      {modal && <div>Incorrect email or password - try again</div>}
-    </>
+    <div className="login">
+      <div className="login__content">
+        <h2 className="login__header">Sign In</h2>
+        <p className="login__header_description">
+          Sign in with your email and password
+        </p>
+        <form onSubmit={handleSubmit}>
+          <div className="login__input">
+            <p>Email</p>
+            <input
+              className=""
+              name="email"
+              type="text"
+              placeholder="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <p>Password</p>
+            <input
+              className=""
+              name="password"
+              type="password"
+              placeholder="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
+          <Button inputLogin type="submit">
+            Login
+          </Button>
+        </form>
+        {modal && (
+          <div className="login__error">
+            Incorrect email or password - try again
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
