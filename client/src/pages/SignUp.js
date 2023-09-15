@@ -37,12 +37,12 @@ function SignUp() {
         <h2 className="signup__header">Sign Up</h2>
         <form onSubmit={handleSubmit}>
           <div className="signup__input">
-            <p>Email</p>
+            <p>Username</p>
             <input
               className=""
               name="email"
               type="text"
-              placeholder="email"
+              placeholder="username"
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
