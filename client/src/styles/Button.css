@@ -13,6 +13,18 @@
   width: 165px;
   height: 30px;
   margin-bottom: 10px;
-  background-color: #05a085;
-  color: #fff;
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.button--inputLogin, .button--inputSignup {
+  /* padding: 0 20px; */
+  width: 100%;
+  margin: 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  color: var(--white);
+  background-color: var(--black);
 }
