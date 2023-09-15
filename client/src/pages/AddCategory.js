@@ -14,8 +14,6 @@ function AddCategory(props) {
 
   const nav = useNavigate();
 
-  const userEmail = props.userInfo.email; // using props to get email
-
   // Now, you have access to budgetId and budgetName in this component
   console.log("Budget ID:", budgetId);
   console.log("Budget Name:", budgetName);
@@ -31,7 +29,7 @@ function AddCategory(props) {
 
   return (
     <>
-      <Header userInfo={userEmail} />
+      <Header userInfo={props.userInfo} />
       <p>Add Category Page</p>
       <form onSubmit={onSubmit}>
         <div>

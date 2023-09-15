@@ -8,3 +8,11 @@
 .button:hover {
   cursor: pointer;
 }
+
+.button--login, .button--signup{
+  width: 165px;
+  height: 30px;
+  margin-bottom: 10px;
+  background-color: #05a085;
+  color: #fff;
+}

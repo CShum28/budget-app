@@ -29,7 +29,7 @@ function AddBudget(props) {
 
   return (
     <>
-      <Header userInfo={userEmail} />
+      <Header userInfo={props.userInfo} />
       <p>ADD BUDGET PAGE</p>
       <form onSubmit={handleSubmit}>
         <div>
