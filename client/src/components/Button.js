@@ -5,7 +5,9 @@ function Button(props) {
   const buttonClass = classNames(
     `button`,
     { "button--login": props.login },
-    { "button--signup": props.signup }
+    { "button--signup": props.signup },
+    { "button--inputLogin": props.inputLogin },
+    { "button--inputSignup": props.inputSignup }
   );
 
   return (
