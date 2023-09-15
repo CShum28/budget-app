@@ -10,6 +10,6 @@ body.active-modal {
   right: 0;
   bottom: 0;
   position: fixed;
-  background-color: #fff;
-  border: 3px solid black;
+  background-color: var(--white);
+  border: 3px solid var(--black);
 }
