@@ -1,13 +1,11 @@
 import axios from "axios";
 
-function addBudget(userEmail, budgetName, budgetAmount, startDate, endDate) {
+function addBudget(userEmail, budgetName, budgetAmount) {
   return axios
     .post("http://localhost:5000/add-budget", {
       userEmail,
       budgetName,
       budgetAmount,
-      startDate,
-      endDate,
     })
     .then((res) => {
       console.log(res);
