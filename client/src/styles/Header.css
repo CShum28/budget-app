@@ -7,7 +7,7 @@
 
 .header {
   padding: 10px 20px;
-  background-color: #393a3d;
+  background-color: var(--dark-gray);
 }
 
 .header__logo {
