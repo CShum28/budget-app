@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DatePicker from "react-datepicker";
 import addBudget from "../hooks/addBudget";
-import "react-datepicker/dist/react-datepicker.css";
-
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 import Header from "../components/Header";
 import Button from "../components/Button";
@@ -13,8 +8,6 @@ import Button from "../components/Button";
 function AddBudget(props) {
   const [name, setName] = useState("");
   const [budget, setBudget] = useState();
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
 
   const [modal, setModal] = useState(false);
 
@@ -26,10 +19,9 @@ function AddBudget(props) {
     event.preventDefault();
 
     if (name === undefined || budget === undefined) {
-      // if (name === undefined || !Number.isInteger(budget)) {
       setModal(true);
     }
-    addBudget(userEmail, name, budget, startDate, endDate).then((res) => {
+    addBudget(userEmail, name, budget).then((res) => {
       console.log(res);
       nav(`/home/${props.userInfo.id}`);
     });
@@ -62,18 +54,6 @@ function AddBudget(props) {
             onChange={(e) => {
               setBudget(Number(e.target.value));
             }}
-          />
-          <h3>Start Date:</h3>
-          <DatePicker
-            name="start_date"
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-          />
-          <h3>End Date:</h3>
-          <DatePicker
-            name="end_date"
-            selected={endDate}
-            onChange={(date) => setEndDate(date)}
           />
         </div>
         <Button>Add Budget!</Button>
