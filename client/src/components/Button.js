@@ -1,9 +1,8 @@
+import "../styles/Button.css";
 const classNames = require("classnames");
 
 function Button(props) {
-  const buttonClass = classNames({
-    // btn,
-  });
+  const buttonClass = classNames(`button`);
 
   return (
     <button className={buttonClass} onClick={props.onClick}>
