@@ -48,16 +48,16 @@ function Login(props) {
       <div className="login__content">
         <h2 className="login__header">Sign In</h2>
         <p className="login__header_description">
-          Sign in with your email and password
+          Sign in with your username and password
         </p>
         <form onSubmit={handleSubmit}>
           <div className="login__input">
-            <p>Email</p>
+            <p>Username</p>
             <input
               className=""
               name="email"
               type="text"
-              placeholder="email"
+              placeholder="username"
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -81,7 +81,7 @@ function Login(props) {
         </form>
         {modal && (
           <div className="login__error">
-            Incorrect email or password - try again
+            Incorrect username or password - try again
           </div>
         )}
       </div>
