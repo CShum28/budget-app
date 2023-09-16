@@ -6,20 +6,17 @@
 }
 
 .header {
-  padding: 10px 20px;
-  background-color: var(--dark-gray);
+  /* padding: 10px 20px; */
+  background-color: var(--green);
+  /* position: fixed; */
+  width: 100%;
+  z-index: 1000;
 }
 
-.header__logo {
-  height: 5rem;
-  width: auto;
-  border-radius: 20px;
+.header__app-name, .header__user-info-text{
+  color: var(--light-gray)
 }
 
-.header__logo:hover {
+.header__app-name:hover {
   cursor: pointer;
-}
-
-.header__user-info-text {
-  color: #d4d7dc
 }

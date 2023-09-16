@@ -3,6 +3,7 @@ import Button from "./Button";
 import AddTransactionModal from "./AddTransactionModal";
 import TransactionList from "./TransactionList";
 import axios from "axios";
+import "../styles/CategoriesListItem.css";
 
 function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
   const [modal, setModal] = useState(false);
@@ -33,33 +34,39 @@ function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
   // console.log("##: ", category);
 
   return (
-    <div>
-      <p onClick={showTransactions}>
+    <div className="categoriesListItem">
+      <p className="categoriesListItem__category" onClick={showTransactions}>
         {category.category} ${category.max_limit}
       </p>
 
       {modal && (
-        <>
-          <div>
-            <Button onClick={() => toggleEditModal(category)}>Edit</Button>
-            <Button onClick={() => toggleDeleteModal(category)}>Delete</Button>
+        <div className="categoriesListItem__transaction-modal">
+          <div className="categoriesListItem__category-actions">
+            {/* <p>Category Actions:</p> */}
+            <Button edit onClick={() => toggleEditModal(category)}>
+              Edit Category
+            </Button>
+            <Button delete onClick={() => toggleDeleteModal(category)}>
+              Delete Category
+            </Button>
           </div>
-          <Button onClick={() => toggleTransactionModal(category)}>
-            Add Transaction
+          <Button
+            addTransaction
+            onClick={() => toggleTransactionModal(category)}
+          >
+            + Add Transaction
           </Button>
-
           {transactionModal && (
             <AddTransactionModal
               categoryId={category.id}
               budgetId={category.budgets_id}
             />
           )}
-
           <TransactionList
             categoryId={category.id}
             transactions={transactionsList}
           />
-        </>
+        </div>
       )}
     </div>
   );

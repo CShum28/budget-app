@@ -1,4 +1,5 @@
 import Button from "./Button";
+import "../styles/BudgetListItems.css";
 
 function BudgetListItem({
   budget,
@@ -8,16 +9,20 @@ function BudgetListItem({
 }) {
   return (
     <>
-      <tr>
+      <tr className="budgetListItems">
         <td>
-          <Button onClick={() => visitBudget(budget)}>
+          <Button budget onClick={() => visitBudget(budget)}>
             {budget.budget_name}
           </Button>
         </td>
-        <td>{budget.monthly_income}</td>
+        <td>${budget.monthly_income}</td>
         <td>
-          <Button onClick={() => toggleEditModal(budget)}>Edit</Button>
-          <Button onClick={() => toggleDeleteModal(budget)}>Delete</Button>
+          <Button edit onClick={() => toggleEditModal(budget)}>
+            Edit
+          </Button>
+          <Button delete onClick={() => toggleDeleteModal(budget)}>
+            Delete
+          </Button>
         </td>
       </tr>
     </>

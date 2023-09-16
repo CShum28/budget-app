@@ -28,3 +28,31 @@
   color: var(--white);
   background-color: var(--black);
 }
+
+.button--addBudget, .button--addCategory, .button--addTransaction {
+  border: 2px solid var(--light-green);
+  color: var(--light-green);
+  background-color: var(--white);
+  padding: 15px;
+  display: flex;
+  align-items: center; /* Center horizontally */
+}
+
+.button--edit {
+  color: var(--blue);
+  border: 2px solid var(--blue);
+  text-align: center; 
+  background: var(--white);
+}
+
+.button--delete {
+  color: var(--red);
+  border: 1px solid var(--red);
+  background: var(--white);
+}
+
+.button--budget {
+  background: none;
+  color: var(--white);
+  font-size: 16px;
+}

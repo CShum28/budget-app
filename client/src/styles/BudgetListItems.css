@@ -1,0 +1,9 @@
+.budgetListItems {
+  padding-top: 10px;
+}
+
+.budgetListItems td {
+  text-align: center; /* centers the items within the table */
+  color: var(--white)
+}
+
