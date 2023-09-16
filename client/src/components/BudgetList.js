@@ -4,6 +4,7 @@ import BudgetListItem from "./BudgetListItem";
 import EditBudgetModal from "./EditBudgetModal";
 import DeleteModal from "./DeleteModal";
 import deleteBudget from "../hooks/deleteBudget";
+import "../styles/BudgetList.css";
 
 function BudgetList(props) {
   const [selectedBudget, setSelectedBudget] = useState(null);
@@ -56,8 +57,8 @@ function BudgetList(props) {
 
   return (
     <>
-      <table>
-        <tr>
+      <table className="budgetList">
+        <tr className="budgetList__header">
           <th>Budget</th>
           <th>Monthly Income</th>
           <th>Actions</th>
