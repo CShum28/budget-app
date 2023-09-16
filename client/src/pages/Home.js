@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 import BudgetList from "../components/BudgetList";
 import axios from "axios";
+import "../styles/Home.css";
 
 function Home(props) {
   const [budgetList, setBudgetList] = useState([]);
@@ -25,9 +26,17 @@ function Home(props) {
     <>
       {/* This displays the user's email at the top */}
       <Header userInfo={props.userInfo} />
-      <h2>This is the home page</h2>
-      <Button onClick={addNewBudget}>Add New Budget!</Button>
-      <BudgetList budgetList={budgetList} />
+      <div className="home">
+        <Button addBudget onClick={addNewBudget}>
+          + Add a budget
+        </Button>
+        {/* <BudgetList budgetList={budgetList} /> */}
+        {budgetList.length === 0 ? (
+          <p className="home__no-budget">You do not have any budgets!</p>
+        ) : (
+          <BudgetList budgetList={budgetList} />
+        )}
+      </div>
     </>
   );
 }
