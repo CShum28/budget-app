@@ -31,12 +31,15 @@ function Header(props) {
   return (
     <>
       <div className="header">
-        <img
+        {/* <img
           className="header__logo"
           src={budgetBuddyLogo}
           alt="Budget Buddy Logo"
           onClick={handleImageClick}
-        />
+        /> */}
+        <h3 className="header__app-name" onClick={handleImageClick}>
+          Budget Buddy
+        </h3>
         {props.userInfo && (
           <div className="header__user-info">
             <p className="header__user-info-text">
