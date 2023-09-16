@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import CategoriesList from "../components/CategoriesList";
+import "../styles/Budget.css";
 
 function Budget({ userInfo }) {
   const [budget, setBudget] = useState();
@@ -39,16 +40,23 @@ function Budget({ userInfo }) {
   return (
     <>
       <Header userInfo={userInfo} />
-      <h2>This is the budget page!</h2>
-      {budget && ( // needs to be set like this as initally when page first loads budget is undefined
-        <>
-          <p>Budget Name: {budget.budget_name}</p>
-          <p>Budget Amount: {budget.monthly_income}</p>
-        </>
-      )}
-      <Button onClick={addCategory}>Add Category</Button>
-      <h3>Categories:</h3>
-      <CategoriesList categories={categories} />
+      <div className="budget">
+        {budget && ( // needs to be set like this as initally when page first loads budget is undefined
+          <div className="budget__info">
+            <p>Budget Name: {budget.budget_name}</p>
+            <p>Budget Amount: ${budget.monthly_income}</p>
+          </div>
+        )}
+        <Button addCategory onClick={addCategory}>
+          + Add Category
+        </Button>
+        {/* <h3>Categories:</h3> */}
+        {categories.length === 0 ? (
+          <p className="budget__no-categories">Please add some categories!</p>
+        ) : (
+          <CategoriesList categories={categories} />
+        )}
+      </div>
     </>
   );
 }
