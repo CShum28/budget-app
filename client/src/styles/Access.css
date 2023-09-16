@@ -1,7 +1,5 @@
 .access {
-  background: linear-gradient(to right, var(--navy), var(--light-green));
   height: 100vh;
-  width: 100;
 }
 
 .access, .access__content, .access__buttons{

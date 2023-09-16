@@ -1,0 +1,14 @@
+.budgetList {
+  /* border: 1px solid black; */
+  width: 50vw;
+  margin-top: 20px;
+}
+
+.budgetList__header {
+  background: var(--green);
+  color: var(--white);
+}
+
+.budgetList__header th {
+  padding: 10px 0;
+}

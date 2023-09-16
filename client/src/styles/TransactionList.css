@@ -1,0 +1,9 @@
+.transactionList {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.transactionList__header th{
+  color: var(--white);
+  font-weight: 600;
+}

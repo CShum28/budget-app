@@ -1,0 +1,17 @@
+.budget, .budget__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.budget__no-categories, .budget__info  {
+  color: var(--white);
+}
+
+.budget__info {
+  margin: 10px;
+}
+
+.budget__info p {
+  margin: 5px;
+}

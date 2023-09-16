@@ -1,0 +1,14 @@
+.home {
+  height: auto;
+}
+
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  margin-top: 20px;
+}
+
+.home__no-budget {
+  color: var(--white)
+}
