@@ -3,6 +3,7 @@ import TransactionListItem from "./TransactionListItem";
 import EditTransactionModal from "./EditTransactionModal";
 import DeleteModal from "./DeleteModal";
 import deleteTransaction from "../hooks/deleteTransaction";
+import "../styles/TransactionList.css";
 
 function TransactionList({ categoryId, transactions }) {
   const [selectedTransaction, setSelectedTransaction] = useState(null);
@@ -47,8 +48,8 @@ function TransactionList({ categoryId, transactions }) {
 
   return (
     <div>
-      <table>
-        <tr>
+      <table className="transactionList">
+        <tr className="transactionList__header">
           <th>Name</th>
           <th>Amount</th>
           <th>Date</th>
