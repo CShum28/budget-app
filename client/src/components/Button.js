@@ -7,7 +7,13 @@ function Button(props) {
     { "button--login": props.login },
     { "button--signup": props.signup },
     { "button--inputLogin": props.inputLogin },
-    { "button--inputSignup": props.inputSignup }
+    { "button--inputSignup": props.inputSignup },
+    { "button--addBudget": props.addBudget },
+    { "button--edit": props.edit },
+    { "button--delete": props.delete },
+    { "button--budget": props.budget },
+    { "button--addCategory": props.addCategory },
+    { "button--addTransaction": props.addTransaction }
   );
 
   return (
