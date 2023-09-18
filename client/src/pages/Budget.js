@@ -50,7 +50,6 @@ function Budget({ userInfo }) {
         <Button addCategory onClick={addCategory}>
           + Add Category
         </Button>
-        {/* <h3>Categories:</h3> */}
         {categories.length === 0 ? (
           <p className="budget__no-categories">Please add some categories!</p>
         ) : (
