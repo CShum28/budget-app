@@ -4,6 +4,7 @@ import addTransaction from "../hooks/addTransaction";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import "../styles/AddTransactionModal.css";
 
 function AddTransactionModal({ budgetId, categoryId }) {
   const [transaction, setTransaction] = useState("");
@@ -24,38 +25,43 @@ function AddTransactionModal({ budgetId, categoryId }) {
 
   return (
     <>
-      <p>Add Transaction!</p>
       <form onSubmit={handleSubmit}>
-        <div>
-          <p>Transaction</p>
-          <input
-            className=""
-            name="transaction_name"
-            type="text"
-            placeholder="Transaction Name..."
-            value={transaction}
-            onChange={(e) => {
-              setTransaction(e.target.value);
-            }}
-          />
-          <p>Amount</p>
-          <input
-            className=""
-            name="amount"
-            type="number"
-            value={amount}
-            onChange={(e) => {
-              setAmount(Number(e.target.value));
-            }}
-          />
-          <p>Date</p>
-          <DatePicker
-            name="date"
-            selected={transactionDate}
-            onChange={(date) => setTransactionDate(date)}
-          />
+        <div className="addTransactionModal">
+          <div>
+            <p>Transaction</p>
+            <input
+              className=""
+              name="transaction_name"
+              type="text"
+              placeholder="Transaction..."
+              value={transaction}
+              onChange={(e) => {
+                setTransaction(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <p>Amount</p>
+            <input
+              className=""
+              name="amount"
+              type="number"
+              value={amount}
+              onChange={(e) => {
+                setAmount(Number(e.target.value));
+              }}
+            />
+          </div>
+          <div>
+            <p>Date</p>
+            <DatePicker
+              name="date"
+              selected={transactionDate}
+              onChange={(date) => setTransactionDate(date)}
+            />
+          </div>
+          <Button addTransaction>Submit</Button>
         </div>
-        <Button>Add Transaction</Button>
       </form>
     </>
   );

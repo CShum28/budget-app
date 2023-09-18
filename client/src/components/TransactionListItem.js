@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import Button from "./Button";
+import "../styles/TransactionListItem.css";
 
 function TransactionListItem({
   transaction,
@@ -10,13 +11,17 @@ function TransactionListItem({
 
   return (
     <>
-      <tr>
+      <tr className="transactionListItem">
         <td>{transaction.transaction_name}</td>
         <td>${transaction.amount}</td>
         <td>{formattedDate}</td>
         <td>
-          <Button onClick={() => toggleEditModal(transaction)}>Edit</Button>
-          <Button onClick={() => toggleDeleteModal(transaction)}>Delete</Button>
+          <Button edit onClick={() => toggleEditModal(transaction)}>
+            Edit
+          </Button>
+          <Button delete onClick={() => toggleDeleteModal(transaction)}>
+            Delete
+          </Button>
         </td>
       </tr>
     </>

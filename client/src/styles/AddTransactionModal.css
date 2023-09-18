@@ -1,0 +1,23 @@
+.addTransactionModal {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin: 10px 0;
+}
+
+.addTransactionModal p {
+  color: var(--white);
+  margin: 0;
+}
+
+.addTransactionModal input {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 75%;
+}
+
+/* .addTransactionModal Button {
+  align-self: center;
+} */

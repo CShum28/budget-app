@@ -51,7 +51,7 @@ function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
             </Button>
           </div>
           <Button
-            addTransaction
+            addTransactionModal
             onClick={() => toggleTransactionModal(category)}
           >
             + Add Transaction

@@ -48,15 +48,17 @@ function TransactionList({ categoryId, transactions }) {
 
   return (
     <div>
-      <table className="transactionList">
-        <tr className="transactionList__header">
-          <th>Name</th>
-          <th>Amount</th>
-          <th>Date</th>
-          <th>Actions</th>
-        </tr>
-        <tbody>{transactionsList}</tbody>
-      </table>
+      {transactionsList.length > 0 && (
+        <table className="transactionList">
+          <tr className="transactionList__header">
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+          <tbody>{transactionsList}</tbody>
+        </table>
+      )}
       {deleteModal && (
         <DeleteModal
           confirmDelete={confirmDelete}

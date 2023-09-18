@@ -29,13 +29,17 @@
   background-color: var(--black);
 }
 
-.button--addBudget, .button--addCategory, .button--addTransaction {
+.button--addBudget, .button--addCategory, .button--addTransactionModal, .button--addTransaction {
   border: 2px solid var(--light-green);
   color: var(--light-green);
   background-color: var(--white);
   padding: 15px;
   display: flex;
   align-items: center; /* Center horizontally */
+}
+
+.button--addTransaction {
+  align-self: center;
 }
 
 .button--edit {
@@ -55,4 +59,10 @@
   background: none;
   color: var(--white);
   font-size: 16px;
+}
+
+.button--cancel {
+  color: var(--dark-gray);
+  border: 1px solid var(--dark-gray);
+  background: var(--white);
 }
