@@ -1,0 +1,4 @@
+.transactionListItem td {
+  color: var(--white);
+  text-align: center;
+}

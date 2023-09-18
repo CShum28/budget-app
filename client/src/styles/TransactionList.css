@@ -3,7 +3,12 @@
   margin-top: 10px;
 }
 
+/* .transactionList__header {
+  margin-bottom: 10px;
+} */
+
 .transactionList__header th{
   color: var(--white);
   font-weight: 600;
+  background: var(--blue);
 }

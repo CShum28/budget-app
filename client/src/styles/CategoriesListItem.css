@@ -19,7 +19,6 @@
   color: var(--white);
   padding: 10px;
   background: var(--green);
-  transition: 1s;
   margin: 5px 0 0;
   border-top-left-radius: 10px; /* Adjust the value as needed */
   border-top-right-radius: 10px; /* Adjust the value as needed */
