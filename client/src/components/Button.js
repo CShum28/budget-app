@@ -13,7 +13,9 @@ function Button(props) {
     { "button--delete": props.delete },
     { "button--budget": props.budget },
     { "button--addCategory": props.addCategory },
-    { "button--addTransaction": props.addTransaction }
+    { "button--addTransactionModal": props.addTransactionModal },
+    { "button--addTransaction": props.addTransaction },
+    { "button--cancel": props.cancel }
   );
 
   return (
