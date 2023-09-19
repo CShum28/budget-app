@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import addCategory from "../hooks/addCategory";
+import "../styles/AddCategory.css";
 
 function AddCategory(props) {
   const [category, setCategory] = useState("");
@@ -30,34 +31,38 @@ function AddCategory(props) {
   return (
     <>
       <Header userInfo={props.userInfo} />
-      <p>Add Category Page</p>
-      <form onSubmit={onSubmit}>
-        <div>
-          <p>Category Name</p>
-          <input
-            className=""
-            name="category"
-            placeholder="Category name..."
-            type="text"
-            value={category}
-            onChange={(e) => {
-              setCategory(e.target.value);
-            }}
-          />
-          <p>Amount</p>
-          <input
-            className=""
-            name="max_limit"
-            type="number"
-            value={amount}
-            onChange={(e) => {
-              setAmount(Number(e.target.value));
-            }}
-          />
+      <div className="addCategory">
+        <div className="addCategory__content">
+          <p className="addCategory__header">Add New Category!</p>
+          <form onSubmit={onSubmit}>
+            <div className="addCategory__input">
+              <p>Category Name</p>
+              <input
+                className=""
+                name="category"
+                placeholder="Category name..."
+                type="text"
+                value={category}
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                }}
+              />
+              <p>Amount</p>
+              <input
+                className=""
+                name="max_limit"
+                type="number"
+                value={amount}
+                onChange={(e) => {
+                  setAmount(Number(e.target.value));
+                }}
+              />
+            </div>
+            <Button addCategory>Add Category</Button>
+          </form>
+          {modal && <p>Please enter in the input fields correctly!</p>}
         </div>
-        <Button>Add Category</Button>
-      </form>
-      {modal && <p>Please enter in the input fields correctly!</p>}
+      </div>
     </>
   );
 }
