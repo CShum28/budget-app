@@ -4,10 +4,11 @@ import addBudget from "../hooks/addBudget";
 
 import Header from "../components/Header";
 import Button from "../components/Button";
+import "../styles/AddBudget.css";
 
 function AddBudget(props) {
   const [name, setName] = useState("");
-  const [budget, setBudget] = useState();
+  const [budget, setBudget] = useState(0);
 
   const [modal, setModal] = useState(false);
 
@@ -28,38 +29,41 @@ function AddBudget(props) {
   };
 
   return (
-    <>
+    <div>
       <Header userInfo={props.userInfo} />
-      <p>ADD BUDGET PAGE</p>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <h3>Budget Name:</h3>
-          <input
-            className=""
-            name="budget_name"
-            type="text"
-            placeholder="Budget name..."
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-          <h3>Monthly Income Amount:</h3>
-          <input
-            className=""
-            name="monthly_income"
-            type="number"
-            placeholder="Budget amount..."
-            value={budget}
-            onChange={(e) => {
-              setBudget(Number(e.target.value));
-            }}
-          />
+      <div className="addBudget">
+        <div className="addBudget__content">
+          <p className="addBudget__header">Add New Budget!</p>
+          <form onSubmit={handleSubmit}>
+            <div className="addBudget__input">
+              <p>Budget Name:</p>
+              <input
+                className=""
+                name="budget_name"
+                type="text"
+                placeholder="Budget name..."
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
+              <p>Monthly Income:</p>
+              <input
+                className=""
+                name="monthly_income"
+                type="number"
+                value={budget}
+                onChange={(e) => {
+                  setBudget(Number(e.target.value));
+                }}
+              />
+            </div>
+            <Button addBudget>Add Budget!</Button>
+          </form>
+          {modal && <p>Please ensure all inputs are filled out properly!</p>}
         </div>
-        <Button>Add Budget!</Button>
-      </form>
-      {modal && <p>Please ensure all inputs are filled out properly!</p>}
-    </>
+      </div>
+    </div>
   );
 }
 
