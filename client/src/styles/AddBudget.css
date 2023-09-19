@@ -1,0 +1,44 @@
+.addBudget {
+  height: 80vh;
+}
+
+.addBudget, .addBudget__content, .addBudget__header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.addBudget__content {
+  background: var(--light-green);
+  padding: 0 20px 20px;
+}
+
+.addBudget__content {
+  border-radius: 20px;
+}
+
+.addBudget__content p {
+  color: var(--white);
+  margin: 0;
+}
+
+.addBudget__header {
+  background: var(--green);
+  width: 100%;
+  padding: 10px 20px; 
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+}
+
+.addBudget__input p{
+  margin-top: 10px;
+}
+
+.addBudget__input input {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 75%;
+}

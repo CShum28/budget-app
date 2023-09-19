@@ -29,7 +29,10 @@
   background-color: var(--black);
 }
 
-.button--addBudget, .button--addCategory, .button--addTransactionModal, .button--addTransaction {
+.button--addBudget, 
+.button--addCategory, 
+.button--addTransactionModal, 
+.button--addTransaction{
   border: 2px solid var(--light-green);
   color: var(--light-green);
   background-color: var(--white);
@@ -40,6 +43,10 @@
 
 .button--addTransaction {
   align-self: center;
+}
+
+.button--addBudget, .button--addCategory {
+  margin: 10px 0 0;
 }
 
 .button--edit {
