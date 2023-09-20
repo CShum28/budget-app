@@ -34,7 +34,7 @@ function CategoriesList({ categories }) {
     document.body.classList.remove("active-modal");
   }
 
-  console.log("Current select category: ", selectedCategory);
+  // console.log("Current select category: ", selectedCategory);
 
   const categoryList = categories.map((category) => {
     return (
