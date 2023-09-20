@@ -30,8 +30,8 @@ function Budget({ userInfo }) {
       });
   }, []);
 
-  console.log("Budget Info: ", budget);
-  console.log("Budget Categories: ", categories);
+  // console.log("Budget Info: ", budget);
+  // console.log("Budget Categories: ", categories);
 
   const addCategory = () => {
     nav(`/add-category/${budget.id}/${budget.budget_name}`);

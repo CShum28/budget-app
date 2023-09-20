@@ -26,7 +26,7 @@ function TransactionList({ categoryId, transactions }) {
     window.location.reload(false); // refreshes the page
   };
 
-  console.log("The selectedTransaction is: ", selectedTransaction);
+  // console.log("The selectedTransaction is: ", selectedTransaction);
 
   const transactionsList = transactions.map((transaction) => {
     return (
