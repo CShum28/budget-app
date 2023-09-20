@@ -18,10 +18,10 @@ function EditBudgetModal({ selectedBudget, toggleModal }) {
 
   return (
     <>
-      <div className="edit-modal edit-overlay">
-        <p>Edit Budget - {selectedBudget.budget_name}</p>
+      <div className="budget-modal edit-modal edit-overlay">
+        <h3>Edit Budget</h3>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="budget-modal__input">
             <p>Budget Name:</p>
             <input
               name="budget_name"
@@ -41,9 +41,13 @@ function EditBudgetModal({ selectedBudget, toggleModal }) {
               }}
             />
           </div>
-          <Button>Update Budget</Button>
+          <div className="budget-modal__buttons">
+            <Button update>Update</Button>
+            <Button cancel onClick={toggleModal}>
+              Cancel
+            </Button>
+          </div>
         </form>
-        <Button onClick={toggleModal}>Cancel</Button>
       </div>
     </>
   );

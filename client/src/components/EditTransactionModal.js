@@ -23,9 +23,10 @@ function EditTransactionModal({ selectedTransaction, toggleModal }) {
 
   return (
     <>
-      <div className="edit-modal edit-overlay">
+      <div className="transaction-modal edit-modal edit-overlay">
+        <h3>Edit Transaction</h3>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="transaction-modal__input">
             <p>Transaction</p>
             <input
               name="transaction_name"
@@ -51,9 +52,13 @@ function EditTransactionModal({ selectedTransaction, toggleModal }) {
               onChange={(date) => setDate(date)}
             />
           </div>
-          <Button>Update Transaction</Button>
+          <div className="transaction-modal__buttons">
+            <Button update>Update</Button>
+            <Button cancel onClick={toggleModal}>
+              Cancel
+            </Button>
+          </div>
         </form>
-        <Button onClick={toggleModal}>Cancel</Button>
       </div>
     </>
   );
