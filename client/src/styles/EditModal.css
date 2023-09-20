@@ -3,13 +3,64 @@ body.active-modal {
 }
 
 .edit-modal, .edit-overlay {
-  width: 300px;
-  height: 50%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   position: fixed;
-  background-color: var(--white);
-  border: 3px solid var(--black);
+  background-color: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
 }
+
+.edit-modal p, 
+.edit-modal h3 {
+  color: var(--white);
+  margin: 0;
+}
+
+.edit-modal h3 {
+  margin-top: 20px;
+}
+
+.transaction-modal {
+  width: 260px;
+  height: 270px;
+}
+
+.category-modal,
+.budget-modal {
+  width: 220px;
+  height: 220px;
+}
+
+.transaction-modal__input, 
+.category-modal__input,
+.budget-modal__input {
+  margin-top: 10px;
+}
+
+.transaction-modal__input input, 
+.category-modal__input input,
+.budget-modal__input input {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.transaction-modal__input p, .category-modal__input p{
+  margin: 0;
+}
+
+.transaction-modal__buttons, 
+.category-modal__buttons,
+.budget-modal__buttons {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 5px;
+}
+

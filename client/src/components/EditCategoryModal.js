@@ -20,10 +20,10 @@ function EditCategoryModal({ selectedCategory, toggleModal }) {
 
   return (
     <>
-      <div className="edit-modal edit-overlay">
-        <p>Edit Category - {selectedCategory.category}</p>
+      <div className="category-modal edit-modal edit-overlay">
+        <h3>Edit Category</h3>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="category-modal__input">
             <p>Category Name</p>
             <input
               name="category"
@@ -43,9 +43,13 @@ function EditCategoryModal({ selectedCategory, toggleModal }) {
               }}
             />
           </div>
-          <Button>Update Category</Button>
+          <div className="category-modal__buttons">
+            <Button update>Update</Button>
+            <Button cancel onClick={toggleModal}>
+              Cancel
+            </Button>
+          </div>
         </form>
-        <Button onClick={toggleModal}>Cancel</Button>
       </div>
     </>
   );

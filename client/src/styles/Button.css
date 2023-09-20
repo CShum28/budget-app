@@ -56,6 +56,13 @@
   background: var(--white);
 }
 
+.button--update {
+  color: var(--light-green);
+  border: 2px solid var(--light-green);
+  text-align: center; 
+  background: var(--white);
+}
+
 .button--delete {
   color: var(--red);
   border: 1px solid var(--red);
