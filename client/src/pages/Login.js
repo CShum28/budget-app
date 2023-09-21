@@ -9,7 +9,8 @@ function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [modal, setModal] = useState(false);
+  const [loginCredModal, setLoginCredModal] = useState(false); // check if user and password match
+  const [emptyCheckModal, setEmptyCheckModal] = useState(false); // modal to display if input for user or password is empty
   const nav = useNavigate();
 
   const displayUser = (res) => {
@@ -19,28 +20,34 @@ function Login(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    emailCheck(email).then((res) => {
-      // this checks if the email that is being entered exists or not
-      if (!res) {
-        setModal(true);
-      } else {
-        userLogin(email, password)
-          .then((res) => {
-            if (res.password === false) {
-              // this checks if the password being enters matches or not
-              setModal(true);
-            } else {
-              console.log("##", res.id);
-              // if email and password match - navigate to next screen
-              displayUser(res);
-              nav(`/home/${res.id}`);
-            }
-          })
-          .catch((error) => {
-            console.error("Login failed");
-          });
-      }
-    });
+    if (!email || !password) {
+      setLoginCredModal(false);
+      setEmptyCheckModal(true);
+    } else {
+      emailCheck(email).then((res) => {
+        // this checks if the email that is being entered exists or not
+        if (!res) {
+          setEmptyCheckModal(false);
+          setLoginCredModal(true);
+        } else {
+          userLogin(email, password)
+            .then((res) => {
+              if (res.password === false) {
+                // this checks if the password being enters matches or not
+                setEmptyCheckModal(false);
+                setLoginCredModal(true);
+              } else {
+                // if email and password match - navigate to next screen
+                displayUser(res);
+                nav(`/home/${res.id}`);
+              }
+            })
+            .catch((error) => {
+              console.error("Login failed");
+            });
+        }
+      });
+    }
   };
 
   return (
@@ -58,6 +65,7 @@ function Login(props) {
               name="email"
               type="text"
               placeholder="username"
+              maxlength="50"
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -69,6 +77,7 @@ function Login(props) {
               name="password"
               type="password"
               placeholder="password"
+              maxlength="50"
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -79,10 +88,13 @@ function Login(props) {
             Login
           </Button>
         </form>
-        {modal && (
-          <div className="login__error">
-            Incorrect username or password - try again
+        {emptyCheckModal && (
+          <div className="signup__error">
+            Please do not leave any inputs blank
           </div>
+        )}
+        {loginCredModal && (
+          <div className="login__error">Incorrect username or password</div>
         )}
       </div>
     </div>
