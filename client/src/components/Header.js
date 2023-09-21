@@ -2,7 +2,6 @@ import Button from "./Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/Header.css";
-import budgetBuddyLogo from "../assets/budget-buddy-logo.png";
 
 function Header(props) {
   const nav = useNavigate();
@@ -31,12 +30,6 @@ function Header(props) {
   return (
     <>
       <div className="header">
-        {/* <img
-          className="header__logo"
-          src={budgetBuddyLogo}
-          alt="Budget Buddy Logo"
-          onClick={handleImageClick}
-        /> */}
         <h3 className="header__app-name" onClick={handleImageClick}>
           Budget Buddy
         </h3>
