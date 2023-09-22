@@ -19,13 +19,15 @@ function AddBudget(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (name === undefined || budget === undefined) {
+    if (!name || budget < 1) {
+      // ensures name exists and budget is not less than 1
       setModal(true);
+    } else {
+      addBudget(userEmail, name, budget).then((res) => {
+        console.log(res);
+        nav(`/home/${props.userInfo.id}`);
+      });
     }
-    addBudget(userEmail, name, budget).then((res) => {
-      console.log(res);
-      nav(`/home/${props.userInfo.id}`);
-    });
   };
 
   return (
@@ -52,6 +54,7 @@ function AddBudget(props) {
                 className=""
                 name="monthly_income"
                 type="number"
+                step=".01"
                 value={budget}
                 onChange={(e) => {
                   setBudget(Number(e.target.value));
