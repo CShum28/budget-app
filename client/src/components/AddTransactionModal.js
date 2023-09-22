@@ -11,6 +11,8 @@ function AddTransactionModal({ budgetId, categoryId }) {
   const [amount, setAmount] = useState(0);
   const [transactionDate, setTransactionDate] = useState(new Date());
 
+  const [modal, setModal] = useState(false);
+
   console.log(
     "The categoryId that this transaction is getting added to is: ",
     categoryId
@@ -18,9 +20,20 @@ function AddTransactionModal({ budgetId, categoryId }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // categoryId is needed for schema table: categories_transactions
-    addTransaction(categoryId, budgetId, transaction, amount, transactionDate);
-    window.location.reload(false); // refreshes the page
+
+    if (!transaction || amount < 0.01 || !transactionDate) {
+      setModal(true);
+    } else {
+      // categoryId is needed for schema table: categories_transactions
+      addTransaction(
+        categoryId,
+        budgetId,
+        transaction,
+        amount,
+        transactionDate
+      );
+      window.location.reload(false); // refreshes the page
+    }
   };
 
   return (
@@ -43,9 +56,9 @@ function AddTransactionModal({ budgetId, categoryId }) {
           <div>
             <p>Amount</p>
             <input
-              className=""
               name="amount"
               type="number"
+              step="any" // allowed decimal places
               value={amount}
               onChange={(e) => {
                 setAmount(Number(e.target.value));
@@ -63,6 +76,11 @@ function AddTransactionModal({ budgetId, categoryId }) {
           <Button addTransaction>Submit</Button>
         </div>
       </form>
+      {modal && (
+        <p className="addTransactionModal__error">
+          Input fields are incorrect!
+        </p>
+      )}
     </>
   );
 }

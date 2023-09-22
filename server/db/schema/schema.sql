@@ -15,21 +15,21 @@ CREATE TABLE budgets (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   budget_name VARCHAR(255) NOT NULL,
-  monthly_income INTEGER NOT NULL
+  monthly_income NUMERIC(10, 2) NOT NULL
 );
 
 CREATE TABLE categories (
   id SERIAL PRIMARY KEY NOT NULL,
   budgets_id INTEGER REFERENCES budgets(id) ON DELETE CASCADE,
   category VARCHAR(255) NOT NULL,
-  max_limit INTEGER NOT NULL
+  max_limit NUMERIC(10, 2) NOT NULL
 );
 
 CREATE TABLE transactions (
   id SERIAL PRIMARY KEY NOT NULL,
   budgets_id INTEGER REFERENCES budgets(id) ON DELETE CASCADE,
   transaction_name VARCHAR(255) NOT NULL,
-  amount INTEGER NOT NULL,
+  amount NUMERIC(10, 2) NOT NULL, -- NUMERIC with 2 decimal places
   date DATE NOT NULL
 );
 

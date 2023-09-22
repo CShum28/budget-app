@@ -54,7 +54,7 @@ function AddBudget(props) {
                 className=""
                 name="monthly_income"
                 type="number"
-                step=".01"
+                step="any"
                 value={budget}
                 onChange={(e) => {
                   setBudget(Number(e.target.value));
@@ -63,7 +63,7 @@ function AddBudget(props) {
             </div>
             <Button addBudget>Add Budget!</Button>
           </form>
-          {modal && <p>Please ensure all inputs are filled out properly!</p>}
+          {modal && <p>Input fields are incorrect!</p>}
         </div>
       </div>
     </div>

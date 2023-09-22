@@ -54,6 +54,7 @@ function AddCategory(props) {
                 className=""
                 name="max_limit"
                 type="number"
+                step="any"
                 value={amount}
                 onChange={(e) => {
                   setAmount(Number(e.target.value));
@@ -62,7 +63,7 @@ function AddCategory(props) {
             </div>
             <Button addCategory>Add Category</Button>
           </form>
-          {modal && <p>Please enter in the input fields correctly!</p>}
+          {modal && <p>Input fields are incorrect!</p>}
         </div>
       </div>
     </>

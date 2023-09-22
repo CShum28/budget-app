@@ -29,7 +29,8 @@ function Budget({ userInfo }) {
             setCategories(res.data);
 
             const sum = categories.reduce(
-              (accumulator, categories) => accumulator + categories.max_limit,
+              (accumulator, categories) =>
+                accumulator + Number(categories.max_limit),
               0
             );
 

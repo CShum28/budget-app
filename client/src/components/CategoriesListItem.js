@@ -25,11 +25,12 @@ function CategoriesListItem({ category, toggleEditModal, toggleDeleteModal }) {
 
         // calculate the sum of transactions
         const totalAmount = fetchedTransactions.reduce(
-          (accumulator, transaction) => accumulator + transaction.amount,
+          (accumulator, transaction) =>
+            accumulator + Number(transaction.amount),
           0
         );
 
-        setAmount(totalAmount);
+        setAmount(totalAmount.toFixed(2)); // rounds the number to 2 decimal places
       });
   }, [category.id]);
 

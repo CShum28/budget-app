@@ -12,13 +12,21 @@ function EditTransactionModal({ selectedTransaction, toggleModal }) {
   const [amount, setAmount] = useState(selectedTransaction.amount);
   const [date, setDate] = useState(new Date(selectedTransaction.date));
 
+  const [modal, setModal] = useState(false);
+
   const transactionId = selectedTransaction.id;
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(transactionName);
-    updateTransaction(transactionId, transactionName, amount, date);
-    window.location.reload(false); // refreshes the page
+
+    // checks to ensure inputs are correct
+    if (!transactionName || amount < 0.01 || !date) {
+      setModal(true);
+    } else {
+      updateTransaction(transactionId, transactionName, amount, date);
+      window.location.reload(false); // refreshes the page
+    }
   };
 
   return (
@@ -40,6 +48,7 @@ function EditTransactionModal({ selectedTransaction, toggleModal }) {
             <input
               name="amount"
               type="number"
+              step="any"
               value={amount}
               onChange={(e) => {
                 setAmount(Number(e.target.value));
@@ -59,6 +68,7 @@ function EditTransactionModal({ selectedTransaction, toggleModal }) {
             </Button>
           </div>
         </form>
+        {modal && <p>Input fields are incorrect!</p>}
       </div>
     </>
   );
