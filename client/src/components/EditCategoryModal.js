@@ -7,15 +7,20 @@ function EditCategoryModal({ selectedCategory, toggleModal }) {
   const [category, setCategory] = useState(selectedCategory.category);
   const [amount, setAmount] = useState(selectedCategory.max_limit);
 
+  const [modal, setModal] = useState(false);
+
   const categoryId = selectedCategory.id;
   const budgetId = selectedCategory.budgets_id;
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(category);
-    console.log(amount);
-    updateCategory(categoryId, budgetId, category, amount);
-    window.location.reload(false); // refreshes the page
+    if (!category || amount < 1 || !Number(amount)) {
+      // check to ensure category and amount are present
+      setModal(true);
+    } else {
+      updateCategory(categoryId, budgetId, category, amount);
+      window.location.reload(false); // refreshes the page
+    }
   };
 
   return (
@@ -50,6 +55,7 @@ function EditCategoryModal({ selectedCategory, toggleModal }) {
             </Button>
           </div>
         </form>
+        {modal && <p>Input fields are incorrect!</p>}
       </div>
     </>
   );

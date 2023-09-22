@@ -2,18 +2,27 @@ import { useState } from "react";
 import Button from "./Button";
 import updateBudget from "../hooks/updateBudget";
 import "../styles/EditModal.css";
+import { set } from "date-fns";
 
 function EditBudgetModal({ selectedBudget, toggleModal }) {
   const [name, setName] = useState(selectedBudget.budget_name);
   const [budget, setBudget] = useState(selectedBudget.monthly_income);
+
+  const [modal, setModal] = useState(false);
 
   const userId = selectedBudget.user_id; // id of the owner of the budget
   const budgetId = selectedBudget.id; // id of the budget
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateBudget(userId, budgetId, name, budget);
-    window.location.reload(false); // refreshs page
+
+    if (!name || budget < 1) {
+      // check to ensure name and budget are present
+      setModal(true);
+    } else {
+      updateBudget(userId, budgetId, name, budget);
+      window.location.reload(false); // refreshs page
+    }
   };
 
   return (
@@ -48,6 +57,7 @@ function EditBudgetModal({ selectedBudget, toggleModal }) {
             </Button>
           </div>
         </form>
+        {modal && <p>Input fields are incorrect!</p>}
       </div>
     </>
   );

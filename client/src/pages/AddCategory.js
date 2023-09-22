@@ -21,11 +21,13 @@ function AddCategory(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    if (category === undefined || amount <= 0) {
+    if (!category || amount < 1) {
+      // check category has name and amount is above 0
       setModal(true);
+    } else {
+      addCategory(budgetId, category, amount);
+      nav(`/budget/${budgetId}`);
     }
-    addCategory(budgetId, category, amount);
-    nav(`/budget/${budgetId}`);
   };
 
   return (
