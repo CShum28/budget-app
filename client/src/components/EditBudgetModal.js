@@ -44,6 +44,7 @@ function EditBudgetModal({ selectedBudget, toggleModal }) {
             <input
               name="monthly_income"
               type="number"
+              step="any"
               value={budget}
               onChange={(e) => {
                 setBudget(Number(e.target.value));

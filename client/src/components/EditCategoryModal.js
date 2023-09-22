@@ -42,6 +42,7 @@ function EditCategoryModal({ selectedCategory, toggleModal }) {
             <input
               name="max_limit"
               type="number"
+              step="any"
               value={amount}
               onChange={(e) => {
                 setAmount(Number(e.target.value));
