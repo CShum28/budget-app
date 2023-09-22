@@ -4,11 +4,16 @@ import axios from "axios";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import CategoriesList from "../components/CategoriesList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+
 import "../styles/Budget.css";
 
 function Budget({ userInfo }) {
   const [budget, setBudget] = useState();
   const [categories, setCategories] = useState([]);
+  const [categoriesSum, setCategoriesSum] = useState(0);
+
   const { id } = useParams(); // getting id to be used for GET request
   const nav = useNavigate();
   useEffect(() => {
@@ -19,8 +24,16 @@ function Budget({ userInfo }) {
         axios
           .get(`http://localhost:5000/api/get-categories/${res.data[0].id}`) // call to set the categories of budget
           .then((res) => {
-            // console.log(res.data);
+            const categories = res.data;
+
             setCategories(res.data);
+
+            const sum = categories.reduce(
+              (accumulator, categories) => accumulator + categories.max_limit,
+              0
+            );
+
+            setCategoriesSum(sum);
           });
       })
       .catch((error) => {
@@ -45,6 +58,14 @@ function Budget({ userInfo }) {
           <div className="budget__info">
             <p>Budget Name: {budget.budget_name}</p>
             <p>Budget Amount: ${budget.monthly_income}</p>
+            <p>Categories Total Amount: ${categoriesSum}</p>
+            {categoriesSum > budget.monthly_income && (
+              <p className="budget__categories-warning">
+                <FontAwesomeIcon icon={faTriangleExclamation} />
+                Categories Total is higher than Budget, please adjust!{" "}
+                <FontAwesomeIcon icon={faTriangleExclamation} />
+              </p>
+            )}
           </div>
         )}
         <Button addCategory onClick={addCategory}>
