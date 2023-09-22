@@ -15,3 +15,7 @@
 .budget__info p {
   margin: 5px;
 }
+
+.budget__categories-warning {
+  font-weight: 600;
+}
