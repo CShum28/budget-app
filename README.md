@@ -46,11 +46,14 @@ Streamline your finances effortlessly with Budget Buddy! Easily track income, ex
    1. Add categories under budget
       1. Category Name
       2. Amount
-4. Can edit / delete categories
-   1. Sum of Categories amount will shown
-5. Add Transaction under Category
-   1. Display sum of transactions compared to Category amount
-6. Progress bar to show transaction total
+   2. Can edit / delete categories
+      1. Sum of Categories amount will shown
+   3. Add Transaction under Category
+      1. Transaction Name
+      2. Amount
+      3. Date
+   4. Display sum of transactions compared to Category amount
+   5. Progress bar to show transaction total
 
 ## Environment
 
