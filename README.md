@@ -35,7 +35,7 @@ Streamline your finances effortlessly with Budget Buddy! Easily track income, ex
 ## Features
 
 1. Sign Up & Login
-1. New users can sign up
+   1. New users can sign up
 1. Existing users can login
 1. Home Page
 1. Add a budget with the following inputs
