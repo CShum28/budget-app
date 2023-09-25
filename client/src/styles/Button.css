@@ -80,3 +80,9 @@
   border: 1px solid var(--dark-gray);
   background: var(--white);
 }
+
+.button--logout {
+  border: 2px solid var(--red);
+  background: var(--red);
+  color: var(--white)
+}

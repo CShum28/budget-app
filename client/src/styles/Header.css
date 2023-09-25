@@ -6,11 +6,21 @@
 }
 
 .header {
-  /* padding: 10px 20px; */
   background-color: var(--green);
-  /* position: fixed; */
   width: 100%;
   z-index: 1000;
+}
+
+.header__user-info {
+  padding-right: 20px;
+}
+
+.header__app-name {
+  padding-left: 20px;
+}
+
+.header__user-info-text {
+  padding-right: 10px;
 }
 
 .header__app-name, .header__user-info-text{
