@@ -79,3 +79,9 @@ Streamline your finances effortlessly with Budget Buddy! Easily track income, ex
 - Express: v4.18.2
 - Morgan: v1.10.0
 - Pg: v8.11.1
+
+## Images
+
+### Login
+
+!["Login"](https://github.com/CShum28/budget-app/blob/master/client/public/images/login.png)
