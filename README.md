@@ -85,3 +85,35 @@ Streamline your finances effortlessly with Budget Buddy! Easily track income, ex
 ### Login
 
 !["Login"](https://github.com/CShum28/budget-app/blob/master/client/public/images/login.png)
+
+### Sign Up
+
+!["Sign Up"](https://github.com/CShum28/budget-app/blob/master/client/public/images/signup.png)
+
+### Home Page
+
+!['Home Page'](https://github.com/CShum28/budget-app/blob/master/client/public/images/home.png)
+
+### Add New Budget
+
+!['Add New Budget'](https://github.com/CShum28/budget-app/blob/master/client/public/images/addbudget.png)
+
+### Edit Existing Budget
+
+!['Edit Budget'](https://github.com/CShum28/budget-app/blob/master/client/public/images/budget-edit.png)
+
+### Budget Page with Categories & Transactions
+
+!['Budget page with Catogories'](https://github.com/CShum28/budget-app/blob/master/client/public/images/category-page.png)
+
+### Add New Category
+
+!['Add New Category'](https://github.com/CShum28/budget-app/blob/master/client/public/images/category-add.png)
+
+### Edit Existing Category
+
+!['Edit Category'](https://github.com/CShum28/budget-app/blob/master/client/public/images/category-edit.png)
+
+### Add Transactions to Category
+
+!['Add Transaction'](https://github.com/CShum28/budget-app/blob/master/client/public/images/transaction-add.png)
