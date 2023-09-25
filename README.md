@@ -21,7 +21,7 @@ Streamline your finances effortlessly with Budget Buddy! Easily track income, ex
 6. Copy the .env file `cp .env.example .env`.
 7. If you are using your own PostgreSQL credentials, update the `DB_USER` and `DB_PASS` fields in .env accordingly.
 8. Create and seed your database: `npm run db:reset`
-9. Run the server: `npm start`.
+9. Run the server: `npm run dev`.
 10. In a separate terminal, open the react app folder: `cd client`.
 11. Install the dependencies: `npm i`.
 12. Start the React app: `npm start`.
