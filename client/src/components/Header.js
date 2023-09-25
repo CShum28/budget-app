@@ -38,7 +38,9 @@ function Header(props) {
             <p className="header__user-info-text">
               Hello {props.userInfo.email}!
             </p>
-            <Button onClick={handleLogOut}>Logout</Button>
+            <Button logout onClick={handleLogOut}>
+              Logout
+            </Button>
           </div>
         )}
       </div>

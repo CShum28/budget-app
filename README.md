@@ -35,22 +35,25 @@ Streamline your finances effortlessly with Budget Buddy! Easily track income, ex
 ## Features
 
 1. Sign Up & Login
-1. New users can sign up
-1. Existing users can login
-1. Home Page
-1. Add a budget with the following inputs
-1. Budget Name
-1. Budget Amount
-1. Can edit / delete existing budget(s)
-1. Budget Page
-1. Add categories under budget
-1. Category Name
-1. Amount
-1. Can edit / delete categories
-1. Sum of Categories amount will shown
-1. Add Transaction under Category
-1. Display sum of transactions compared to Category amount
-1. Progress bar to show transaction total
+   1. New users can sign up
+      1. Existing users can login
+2. Home Page
+   1. Add a budget with the following inputs
+      1. Budget Name
+      1. Budget Amount
+   2. Can edit / delete existing budget(s)
+3. Budget Page
+   1. Add categories under budget
+      1. Category Name
+      2. Amount
+   2. Can edit / delete categories
+      1. Sum of Categories amount will shown
+   3. Add Transaction under Category
+      1. Transaction Name
+      2. Amount
+      3. Date
+   4. Display sum of transactions compared to Category amount
+   5. Progress bar to show transaction total
 
 ## Environment
 

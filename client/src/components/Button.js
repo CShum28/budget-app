@@ -16,7 +16,8 @@ function Button(props) {
     { "button--addTransactionModal": props.addTransactionModal },
     { "button--addTransaction": props.addTransaction },
     { "button--cancel": props.cancel },
-    { "button--update": props.update }
+    { "button--update": props.update },
+    { "button--logout": props.logout }
   );
 
   return (
