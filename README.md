@@ -9,7 +9,7 @@ Streamline your finances effortlessly with Budget Buddy! Easily track income, ex
 3. [Features](#features)
 4. [Environment](#environment)
 5. [Dependencies](#dependencies)
-6. [Interface Images/GIFs](#interface-imagesgifs)
+6. [Images](#Images)
 
 ## Getting Started
 
